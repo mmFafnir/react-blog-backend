@@ -55,7 +55,7 @@ app.get('/users/:id', UserController.getUser);
 // Save Files
 app.post('/upload', checkAuth, upload.single('image'), (req, res) => {
     res.json({
-        url: `https://react-blog-backend-lgkv.onrender.com/${req.file.originalname}`,
+        url: `https://react-blog-backend-lgkv.onrender.com/uploads/${req.file.originalname}`,
     })
 });
 
