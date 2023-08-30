@@ -55,7 +55,7 @@ app.get('/users/:id', UserController.getUser);
 // Save Files
 app.post('/upload', checkAuth, upload.single('image'), (req, res) => {
     res.json({
-        url: `http://localhost:4444/uploads/${req.file.originalname}`,
+        url: `https://react-blog-backend-lgkv.onrender.com/${req.file.originalname}`,
     })
 });
 
@@ -96,7 +96,7 @@ app.post('/works', workCreateValidation, handleValidErrors, checkAuth, WorkContr
 app.get('/works/:id', WorkController.getAll);
 app.delete('/works/:id', WorkController.remove)
 
-app.listen(4444, (error) => {
+app.listen('4444', (error) => {
     if(error) {
         return console.log(error)
     }
