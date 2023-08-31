@@ -29,17 +29,21 @@ export const getAll = async (req, res) => {
         const page = req.query.page || 1;
         const limit = req.query.limit || 5;
         const skip = (page - 1) * limit;
-
+        
         
         const search = {};
         if(id) {
             search.user = {_id: id}
         }
+        
         if(req.query.search) {
             search['$or'] = [
                 {title: {"$regex": req.query.search, "$options": "i"}},
                 {text: {"$regex": req.query.search, "$options": "i"}}
             ] 
+        }
+        if(req.query.tag) { 
+            search['tag'] = {tags: {$in: req.query.tag }}
         }
 
         
