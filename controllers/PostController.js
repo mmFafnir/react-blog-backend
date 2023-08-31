@@ -43,7 +43,7 @@ export const getAll = async (req, res) => {
             ] 
         }
         if(req.query.tag) { 
-            search['tag'] = {tags: {$in: req.query.tag }}
+            search['tags'] = {$in: req.query.tag }
         }
 
         
