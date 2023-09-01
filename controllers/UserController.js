@@ -24,7 +24,7 @@ export const register = async (req, res) => {
         const token = jwt.sign({
             _id: user._id,
         }, 'secret123', {
-            expiresIn: '300',
+            expiresIn: '30d',
         })
         
         const { passwordHash, ...userData } = user._doc;
